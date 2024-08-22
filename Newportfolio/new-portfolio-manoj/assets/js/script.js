@@ -31,11 +31,6 @@ navToggleBtn.addEventListener("click", function () {
 });
 
 
-
-/**
- * skills toggle
- */
-
 const toggleBtnBox = document.querySelector("[data-toggle-box]");
 const toggleBtns = document.querySelectorAll("[data-toggle-btn]");
 const skillsBox = document.querySelector("[data-skills-box]");
@@ -50,11 +45,6 @@ for (let i = 0; i < toggleBtns.length; i++) {
   });
 }
 
-
-
-/**
- * dark & light theme toggle
- */
 
 const themeToggleBtn = document.querySelector("[data-theme-btn]");
 
