@@ -453,7 +453,7 @@ main { overflow-x: hidden; }
   max-width: 500px;
   width: 125%;
   margin-bottom: 30px;
-  margin-top: 80px;
+  margin-top: 0px;
 }
 
 :is(.hero-social-list, .scroll-down) { display: none; }
