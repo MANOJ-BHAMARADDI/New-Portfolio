@@ -645,9 +645,13 @@ main { overflow-x: hidden; }
  * #PROJECT
 \*-----------------------------------*/
 
-.project { padding-block: var(--section-padding); }
+.project {
+  padding-block: var(--section-padding);
+}
 
-.project-list > li { margin-bottom: 25px; }
+.project-list > li {
+  margin-bottom: 25px;
+}
 
 .project-card {
   position: relative;
@@ -664,20 +668,19 @@ main { overflow-x: hidden; }
   transition: var(--transition-1);
 }
 
-.project-card:is(:hover, :focus)::after {
-  background: hsla(0, 0%, 100%, 0.1);
-  backdrop-filter: blur(0.5px);
-}
-
 .project-card .card-content {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 20px;
+  z-index: 1; /* Lower z-index */
+  pointer-events: none; /* Prevent blocking clicks */
 }
 
-.project-card .card-title { margin-bottom: 10px; }
+.project-card .card-title {
+  margin-bottom: 10px;
+}
 
 .project-card :is(.card-title, .publish-date) {
   background: var(--bg-primary);
@@ -692,15 +695,14 @@ main { overflow-x: hidden; }
 .project-card .publish-date {
   font-size: var(--fs-6);
   color: var(--color-primary);
-  transition-delay: 0s;
+  /* transition-delay: 0s; */
 }
 
-.project-card:is(:hover, :focus) :is(.card-title, .publish-date) {
+/* Animate title and date on hover */
+.project-card:hover :is(.card-title, .publish-date) {
   transform: translateY(0);
   opacity: 1;
 }
-
-.project-card:is(:hover, :focus) .publish-date { transition-delay: 0.1s; }
 
 .load-more {
   font-size: var(--fs-4);
@@ -708,6 +710,40 @@ main { overflow-x: hidden; }
   text-decoration: underline;
   margin-inline: auto;
 }
+
+.project-buttons {
+  position: relative;
+  z-index: 2; /* Higher z-index to stay clickable */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--bg-primary);
+  cursor: pointer;
+}
+
+.project-buttons .card-title,
+.project-buttons .publish-date {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  transform: none;
+  opacity: 1;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button-group .btn {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+
+
 
 
 
@@ -1276,6 +1312,16 @@ textarea.input-field {
 }
 
 
+.project-buttons {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-buttons .btn {
+  width: fit-content;
+}
 
 
 
